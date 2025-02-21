@@ -152,7 +152,7 @@ input:hover {
   color: #000000;
 }
 
-input:active {
+input:focus {
   border: 1px solid #4E75FF;
 }
 
@@ -235,7 +235,7 @@ fieldset {
   transition: border 0.3ms ease;
 }
 
-fieldset:active {
+fieldset:focus {
   border: 1px solid #4E75FF;
 }
 
