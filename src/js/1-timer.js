@@ -18,6 +18,8 @@ startBtn.disabled = true;
 flatpickr("#datetime-picker", {
   enableTime: true,
   dateFormat: "Y-m-d H:i",
+  defaultDate: new Date(),
+  minuteIncrement: 1,
   time_24hr: true,
   locale: {
     firstDayOfWeek: 1

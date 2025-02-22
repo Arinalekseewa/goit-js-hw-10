@@ -3,28 +3,24 @@ import "izitoast/dist/css/iziToast.min.css";
 
 const form = document.querySelector(".form");
 const input = document.querySelector(".delay-input");
-const fulfilledBtn = document.querySelector('input[name="state"][value="fulfilled"]');
-const rejectedBtn = document.querySelector('input[name="state"][value="rejected"]');
+const fulfilledBtn = document.querySelector('input[value="fulfilled"]');
+const rejectedBtn = document.querySelector('input[value="rejected"]');
 
 form.addEventListener("submit", (evt) => {
     evt.preventDefault();
 
     const delay = parseInt(input.value, 10);
+    const isFulfilled = fulfilledBtn.checked;
+    const isRejected = rejectedBtn.checked;
 
     const promise = new Promise((resolve, reject) => {
         setTimeout(() => {
-            if (fulfilledBtn.checked) { 
+            if (isFulfilled) { 
                 resolve(delay);
-            } else if (rejectedBtn.checked) { 
+            } else if (isRejected) { 
                 reject(delay);
             }
         }, delay);
-        iziToast.show({
-                message: `Wait...`, 
-                backgroundColor: "#FFA000",
-                position: "topRight",
-                timeout: delay,
-            });
     });
 
     promise
